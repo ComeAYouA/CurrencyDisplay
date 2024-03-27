@@ -7,7 +7,8 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/background_with_border"
-    android:padding="6dp">
+    android:paddingHorizontal="8dp"
+    android:paddingVertical="16dp">
 
     <TextView
         android:id="@+id/currency_code_text_view"
@@ -15,6 +16,14 @@
         android:layout_height="wrap_content"
         android:textSize="21sp"
         tools:text="ASD" />
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/currency_name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        tools:text="Австралийский доллар" />
 
     <TextView
         android:id="@+id/exchange_value_text_view"

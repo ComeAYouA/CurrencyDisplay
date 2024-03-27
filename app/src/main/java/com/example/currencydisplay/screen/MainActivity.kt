@@ -1,6 +1,7 @@
 package com.example.currencydisplay.screen
 
 import android.content.IntentFilter
+import android.graphics.drawable.GradientDrawable.Orientation
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.View
@@ -13,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.currencydisplay.utils.InternetBroadCastReceiver
 import com.example.currencydisplay.R
 import com.example.currencydisplay.screen.rv.ExchangeRatesAdapter
@@ -64,7 +66,7 @@ class MainActivity: AppCompatActivity(){
     private fun setupRv(){
         exchangeRatesRV.apply {
             adapter = exchangeRatesAdapter
-            layoutManager = GridLayoutManager(context, 3)
+            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         }
     }
 

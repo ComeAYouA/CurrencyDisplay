@@ -11,8 +11,10 @@ class CurrencyViewHolder(private val view: View): ViewHolder(view) {
     fun bind(exchange: Exchange){
         val currencyCodeTextView = view.findViewById<TextView>(R.id.currency_code_text_view)
         val exchangeRateTextView = view.findViewById<TextView>(R.id.exchange_value_text_view)
+        val currencyNameTextView = view.findViewById<TextView>(R.id.currency_name_text_view)
 
         currencyCodeTextView.text = exchange.charCode
+        currencyNameTextView.text = "${exchange.nominal} ${exchange.name}\n= "
         exchangeRateTextView.text = exchange.currentValue.toString() + " руб."
     }
 }
