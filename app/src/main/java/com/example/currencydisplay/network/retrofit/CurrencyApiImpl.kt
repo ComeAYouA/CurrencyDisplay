@@ -10,6 +10,5 @@ class CurrencyApiImpl @Inject constructor(
 ): CurrencyApi {
 
     private val currencyApi = retrofit.create(CurrencyApi::class.java)
-
     override suspend fun getExchangeRates(): ExchangeRatesNetworkResource = currencyApi.getExchangeRates()
 }

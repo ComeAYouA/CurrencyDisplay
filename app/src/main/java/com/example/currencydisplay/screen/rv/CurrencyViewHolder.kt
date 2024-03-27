@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.currencydisplay.R
 import com.example.currencydisplay.network.model.Exchange
 
-class CurrencyViewHolder(val view: View): ViewHolder(view) {
+class CurrencyViewHolder(private val view: View): ViewHolder(view) {
 
     fun bind(exchange: Exchange){
         val currencyCodeTextView = view.findViewById<TextView>(R.id.currency_code_text_view)

@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 class ExchangeRatesAdapter @Inject constructor(): Adapter<CurrencyViewHolder>() {
 
-    private val exchangeRateList: MutableList<Exchange> = mutableListOf()
+    private val exchangeRatesList: MutableList<Exchange> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrencyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
@@ -22,20 +22,20 @@ class ExchangeRatesAdapter @Inject constructor(): Adapter<CurrencyViewHolder>() 
         return CurrencyViewHolder(view)
     }
 
-    override fun getItemCount(): Int = exchangeRateList.size
+    override fun getItemCount(): Int = exchangeRatesList.size
 
 
     override fun onBindViewHolder(holder: CurrencyViewHolder, position: Int) {
-        holder.bind(exchangeRateList[position])
+        holder.bind(exchangeRatesList[position])
     }
 
-    fun setExchangeRateList(data: List<Exchange>){
+    fun setExchangeRatesList(data: List<Exchange>){
 
-        val diffUtilCallback = ExchangeRatesDiffUtilCallback(exchangeRateList, data)
+        val diffUtilCallback = ExchangeRatesDiffUtilCallback(exchangeRatesList, data)
         val diffUtilResult = DiffUtil.calculateDiff(diffUtilCallback)
 
-        exchangeRateList.clear()
-        exchangeRateList.addAll(data)
+        exchangeRatesList.clear()
+        exchangeRatesList.addAll(data)
 
         diffUtilResult.dispatchUpdatesTo(this)
     }

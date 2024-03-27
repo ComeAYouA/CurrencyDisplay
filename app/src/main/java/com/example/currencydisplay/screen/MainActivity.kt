@@ -72,7 +72,7 @@ class MainActivity: AppCompatActivity(){
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
                 launch {
-                    updateContentObserver()
+                    setupScreenStateObserver()
                 }
 
                 viewModel.setupSync()
@@ -80,7 +80,7 @@ class MainActivity: AppCompatActivity(){
         }
     }
 
-    private suspend fun updateContentObserver(){
+    private suspend fun setupScreenStateObserver(){
         viewModel.screenState.collect{ state ->
             when(state){
                 is CurrencyScreenState.Success -> {
@@ -89,7 +89,7 @@ class MainActivity: AppCompatActivity(){
 
                     infoDateTextView.text = "Последнее обновление: " + state.data.date
 
-                    exchangeRatesAdapter.setExchangeRateList(
+                    exchangeRatesAdapter.setExchangeRatesList(
                         state.data.exchangeRate.values.toList()
                     )
                 }
